@@ -33,7 +33,11 @@ public class TwitterController {
         }
         return twiiterService.fetchTweetsByUserId(tweetsByUserIdRequestDTO);
     }
-    
+
+    @GetMapping(value =  "/v1/tweet/{tweetId}")
+    public TweetsResponseDTO getTweet(@PathVariable("tweetId") Long tweetId) throws  Exception {
+        return twiiterService.fetchTweetByTweetId(tweetId);
+    }
 
 
 }

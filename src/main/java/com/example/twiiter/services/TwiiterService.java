@@ -27,8 +27,14 @@ public class TwiiterService {
 
     public List<TweetsResponseDTO> fetchTweetsByUserId(TweetsByUserIdRequestDTO tweetsByUserIdRequestDTO) throws Exception {
         List<Tweet> userTweets = tweetRepository.getTweetsByUserId(tweetsByUserIdRequestDTO.getUserId(), PageRequest.of(tweetsByUserIdRequestDTO.getPage(), tweetsByUserIdRequestDTO.getCount()));
-        List<TweetsResponseDTO> tweetsResponseDTO = TwiiterFormatter.formatTweetResponse(userTweets);
+        List<TweetsResponseDTO> tweetsResponseDTO = TwiiterFormatter.formatTweetListResponse(userTweets);
         return tweetsResponseDTO;
+    }
+
+    public TweetsResponseDTO fetchTweetByTweetId(Long tweetId) throws Exception {
+        Tweet tweet = tweetRepository.getTweetsByTweetId(tweetId).orElseThrow(Exception::new);
+        TweetsResponseDTO tweetResponseDTO = TwiiterFormatter.formatTweet(tweet);
+        return tweetResponseDTO;
     }
 
 

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class TwiiterFormatter {
 
-    public static List<TweetsResponseDTO> formatTweetResponse(List<Tweet> tweets) {
+    public static List<TweetsResponseDTO> formatTweetListResponse(List<Tweet> tweets) {
         List<TweetsResponseDTO> tweetsResponseDTOS = new ArrayList<>();
         tweets.forEach(value -> {
             TweetsResponseDTO tweetsResponseDTO = new TweetsResponseDTO();
@@ -18,5 +18,14 @@ public class TwiiterFormatter {
             tweetsResponseDTOS.add(tweetsResponseDTO);
         });
         return tweetsResponseDTOS;
+    }
+
+    public static TweetsResponseDTO formatTweet(Tweet tweet) {
+
+            TweetsResponseDTO tweetsResponseDTO = new TweetsResponseDTO();
+            tweetsResponseDTO.setCreatedAt(tweet.getCreatedAt());
+            tweetsResponseDTO.setId(tweet.getTweetId());
+            tweetsResponseDTO.setText(tweet.getText());
+        return tweetsResponseDTO;
     }
 }
