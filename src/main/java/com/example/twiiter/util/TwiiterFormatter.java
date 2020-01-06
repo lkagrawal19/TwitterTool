@@ -15,6 +15,7 @@ public class TwiiterFormatter {
             tweetsResponseDTO.setCreatedAt(value.getCreatedAt());
             tweetsResponseDTO.setId(value.getTweetId());
             tweetsResponseDTO.setText(value.getText());
+            tweetsResponseDTO.setTweetId(value.getTweetId());
             tweetsResponseDTOS.add(tweetsResponseDTO);
         });
         return tweetsResponseDTOS;
@@ -26,6 +27,7 @@ public class TwiiterFormatter {
             tweetsResponseDTO.setCreatedAt(tweet.getCreatedAt());
             tweetsResponseDTO.setId(tweet.getTweetId());
             tweetsResponseDTO.setText(tweet.getText());
+            tweetsResponseDTO.setTweetId(tweet.getTweetId());
         return tweetsResponseDTO;
     }
 }

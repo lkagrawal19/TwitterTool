@@ -19,4 +19,5 @@ public class TweetsResponseDTO {
     private String text;
     @JsonProperty("created_at")
     private Date createdAt;
+    private Long tweetId;
 }
